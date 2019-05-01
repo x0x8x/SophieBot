@@ -7,7 +7,7 @@ from telethon import events
 
 from sophie_bot.events import register, flood_limit
 from sophie_bot.modules.users import is_user_admin
-from sophie_bot import redis, mongodb, LOGGER, bot
+from sophie_bot import redis, mongodb, logger, bot
 
 LANGUAGES = {}
 LANGS = ()
@@ -18,7 +18,7 @@ for filename in os.listdir('sophie_bot/modules/langs'):
     exec("LANGUAGES[\"" + lang['language_info']['code'] + "\"] = lang")
     LANGS += tuple([lang['language_info']['code']])
 
-LOGGER.info("Languages loaded: {}".format(LANGS))
+logger.info("Languages loaded: {}".format(LANGS))
 
 
 @register(incoming=True, pattern="^/lang$")

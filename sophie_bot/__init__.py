@@ -7,7 +7,7 @@ import logging
 from dotenv import load_dotenv
 from telethon import TelegramClient
 from pymongo import MongoClient
-import redis 
+import redis
 
 load_dotenv("bot.config")
 
