@@ -6,7 +6,6 @@ from sophie_bot.modules.language import get_string
 from sophie_bot.modules.users import get_user_and_text, is_user_admin, user_link
 
 from telethon.tl.functions.channels import EditBannedRequest
-
 from telethon.tl.types import ChatBannedRights
 
 
