@@ -10,7 +10,7 @@ from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
 
 
-@register(incoming=True, pattern="^[/!]ban (.*)")
+@register(incoming=True, pattern="^[/!]ban")
 async def event(event):
     user, reason = await get_user_and_text(event)
     if await ban_user(event, user['user_id'], event.chat_id, None) is True:
