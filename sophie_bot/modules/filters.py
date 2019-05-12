@@ -3,9 +3,9 @@ import re
 from sophie_bot import BOT_NICK, mongodb, redis
 from sophie_bot.events import register
 from sophie_bot.modules.connections import get_conn_chat
+from sophie_bot.modules.flood import flood_limit
 from sophie_bot.modules.notes import send_note
 from sophie_bot.modules.users import is_user_admin
-from sophie_bot.modules.flood import flood_limit
 
 import ujson
 
