@@ -19,28 +19,22 @@ async def check_message(event):
         return
     if not lst:
         return
-
     text = event.text.split(" ")
     for filter in lst:
         for word in text:
             match = re.fullmatch(filter, word, flags=re.IGNORECASE)
-            if match:
+            if not match:
+                return
+            H = mongodb.filters.find_one(
+                {'chat_id': event.chat_id, "handler": {'$regex': str(filter)}})
 
-                regx = '{}'.format(filter)
-                H = mongodb.filters.find_one(
-                    {'chat_id': event.chat_id,
-                     "handler": {'$regex': regx}})
-
-                if H['action'] == 'note':
-                    if await flood_limit(event, 'filter_handler_{}'.format(filter)) is False:
-                        return
-
-                    await send_note(
-                        event.chat_id, event.chat_id, event.message.id,
-                        H['arg'], show_none=True)
-
-                elif H['action'] == 'delete':
-                    await event.delete()
+            if H['action'] == 'note':
+                if await flood_limit(event, 'filter_handler_{}'.format(filter)) is False:
+                    return
+                await send_note(event.chat_id, event.chat_id, event.message.id,
+                                H['arg'], show_none=True)
+            elif H['action'] == 'delete':
+                await event.delete()
 
 
 @register(incoming=True, pattern="^[/!]filter(?!s) ?(@{})?(.*)".format(BOT_NICK))
