@@ -2,7 +2,7 @@ import os
 import re
 
 from sophie_bot import bot, logger, mongodb, redis
-from sophie_bot.events import handler
+from sophie_bot.events import command
 from sophie_bot.modules.flood import flood_limit
 from sophie_bot.modules.users import is_user_admin, user_link
 

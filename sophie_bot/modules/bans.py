@@ -1,7 +1,7 @@
 import time
 
 from sophie_bot import WHITELISTED, bot
-from sophie_bot.events import handler
+from sophie_bot.events import command
 from sophie_bot.modules.language import get_string
 from sophie_bot.modules.users import (get_user, get_user_and_text,
                                       is_user_admin, user_link)
