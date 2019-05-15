@@ -22,7 +22,7 @@ def command(command, arg=False):
         if arg is True:
             cmd = "^[/!](?:{0}|{0}@{1})(?: |$)(.*)".format(command, BOT_NICK)
         else:
-            cmd = "^[/!]{} ?(@)?(?(1){})$".format(command, BOT_NICK)
+            cmd = "^[/!](?:{0}|{0}@{1})(?: |$)".format(command, BOT_NICK)
         bot.add_event_handler(func, events.NewMessage(incoming=True, pattern=cmd))
         bot.add_event_handler(func, events.MessageEdited(incoming=True, pattern=cmd))
     return decorator
