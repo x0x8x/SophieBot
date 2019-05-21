@@ -215,7 +215,7 @@
         "text": {
             "i1": "\nAvailable commands are:",
             "i2": "- /setwelcome <note>: sets your new welcome note!",
-            "i3": "- /cleanservice: Remove Telegram service messages about user joined or leaved chat.",
+            "i3": "- /cleanservice: Remove Telegram service messages about user joined or leaved chat."
         }
     }
  }
