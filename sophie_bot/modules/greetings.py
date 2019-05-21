@@ -115,21 +115,17 @@ async def cleanservice(event):
     enable = ['yes', 'on', 'enable']
     disable = ['no', 'disable']
     bool = args.lower()
-    # old = mongodb.clean_service.find({'chat_id': chat_id})
+    old = mongodb.clean_service.find_one({'chat_id': chat_id})
     if bool:
         if bool in enable:
-            # if old:
-            #       mongodb.clean_service.delete_one({'_id': old['_id']})  # [Avoid conflict]
-            # else:
-            #     pass
-            mongodb.clean_service.insert_one({'chat_id': chat_id, 'service': True})
+            new = {'chat_id': chat_id, 'service': True}
+            if old:
+                mongodb.clean_service.update_one({'_id': old['_id']}, {"$set": new}, upsert=False)
+            else:
+                mongodb.clean_service.insert_one(new)
             await event.reply(get_string("greetings", "serv_yes", chat_id))
         elif bool in disable:
-            # if old:
-            #    mongodb.clean_service.delete_one({'_id': old['_id']})  # [Avoid conflict]
-            # else:
-            #    pass
-            mongodb.clean_service.insert_one({'chat_id': chat_id, 'service': False})
+            mongodb.clean_service.delete_one({'_id': old['_id']})
             await event.reply(get_string("greetings", "serv_no", chat_id))
         else:
             await event.reply(get_string("greetings", "no_args_serv", chat_id))
