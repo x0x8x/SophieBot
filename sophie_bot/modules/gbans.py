@@ -47,7 +47,7 @@ async def blacklist_user(event):
         await event.reply("You can't blacklist user without a reason blyat!")
         return
     try:
-        a
+        await ban_user(event, K['user_id'], event.chat_id, None)
     except Exception as err:
         await event.reply(err)
         logger.error(err)
