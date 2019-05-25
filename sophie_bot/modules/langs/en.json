@@ -223,6 +223,16 @@
             "i2": "- /setwelcome <note>: sets your new welcome note!",
             "i3": "- /cleanservice: Remove Telegram service messages about user joined or leaved chat."
         }
+    },
+    "gbans": {
+        "user_is_blacklisted": "User {} blacklisted.\nReason: {}"
+    },
+    "pm_menu": {
+        "start_hi": "Hey there! My name is Sophie :3, I help you manage your group and more!",
+        "btn_help": "❔ Help",
+        "btn_lang": "🇷🇺 Language",
+        "btn_group": "👥 Group",
+        "btn_channel": "📡 Channel"
     }
  }
 }
