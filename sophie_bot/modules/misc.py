@@ -104,9 +104,9 @@ async def pinMessage(event, strings):
     args = chk.lower()
     tru_txt = ['loud', 'notify']
     if args in tru_txt:
-        silence = True
-    else:
         silence = False
+    else:
+        silence = True
     try:
         await bot(UpdatePinnedMessageRequest(event.to_id, msg_2_pin, silence))
     except ChatNotModifiedError:
