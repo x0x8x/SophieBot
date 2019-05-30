@@ -1,7 +1,7 @@
 # SophieBot
 
 SophieBot can be runned by 2 ways, so
-# Docker way (reccomended)
+# Docker way (recommended)
 
 ## Requirements
 + Installed git
